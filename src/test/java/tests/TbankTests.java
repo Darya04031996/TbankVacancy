@@ -1,9 +1,11 @@
 package tests;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
@@ -60,28 +62,72 @@ public  class TbankTests extends TestBase {
             $("[data-qa-type='fitem:specialty:show-more-btn']").click();
         });
 
-        step("Прокручиваем страницу до чекбокса 'Тестирование' в разделе 'Направление'", () -> {
-            // Прокручиваем страницу до чекбокса с текстом 'Тестирование'
-            $("[data-qa-type='fitem:option:testirovanie.text']").scrollTo();
-        });
-
         step("Выбираем чекбокс 'Тестирование' в модуле 'Направление'", () -> {
             // Находим чекбокс с профессией 'Тестирование' и кликаем по нему
             $("[data-qa-type='fitem:option:testirovanie.fieldWrapper']").click();
         });
         step("Ищем вакансию 'Инженер по автоматизации тестирования (Java/Kotlin)'", () -> {
             // Ищем вакансию с нужным названием по классу и проверяем наличие текста
-            $(".VacancyCard__title-desktop_eq6NiZ").shouldHave(text("Инженер по автоматизации тестирования (Java/Kotlin)"));
+            $(".IndependentPfpJobsVacanciesCatalogNew__cards_cK3abZ").shouldHave(text("Инженер по автоматизации тестирования (Java/Kotlin)"));
         });
 
 
     }
 
     @Test
-    @DisplayName("Проверка выбора чекбокса 'Тестирование' и проверка наличия вакансии 'QA-инженер (backend)'")
+    @DisplayName("Проверка информации на странице  'Инженер по автоматизации тестирования (Java/Kotlin)'")
+    void CheckVacancy() {
+        step("Открываем страницу с вакансией", () -> {
+            open("/career/it/testirovanie/inzhener-po-avtomatizacii-testirovaniya-javakotlin/");
+        });
+        step("Проверяем, что на странице содержатся разделы 'Описание', 'Обязанности' и 'Требования'", () -> {
+            $(".dyzaXu")
+                    .shouldHave(text("Описание"))
+                    .shouldHave(text("Обязанности"))
+                    .shouldHave(text("Требования"))
+                    .shouldHave(text("Мы предлагаем"));
+        });
+    }
+    @Test
+    @DisplayName("Отклик на вакансию")
     void selectRespondTest() {
+        step("Открываем страницу с вакансией", () -> {
+            open("/career/it/testirovanie/inzhener-po-avtomatizacii-testirovaniya-javakotlin/");
+        });
+        step("Нажимаем на кнопку 'Откликнуться'", () -> {
+            $("button[data-qa-type='uikit/button']")
+                    .shouldHave(text("Откликнуться"))
+                    .click();
+        });
+        step("Нажимаем на кнопку 'Откликнуться'",  () -> {
+            $("button[data-qa-type='uikit/button']")
+                    .shouldHave(text("Откликнуться"))
+                    .click();
+        });
+        step("Проверяем, что на странице появляется форма отклика", () -> {
+            $("div[data-qa-type='fb-core/constructor']").shouldBe(visible);
+        });
+        step("Заполняем поля формы", () -> {
+
+            $("input[data-qa-type='uikit/inputFio.value.input']")
+                    .setValue("Иван Иванов");
+
+            $("input[data-qa-type='uikit/inputAutocomplete.value.input']")
+                    .setValue("Москва");
+
+            $("input[data-qa-type='uikit/input.value.input']")
+                    .setValue("test@example.com");
+
+            $("input[data-qa-type='uikit/attachFile.input']")
+                    .uploadFile(new File("path/to/your/file.pdf"));
+
+        });
+
+
+
 
     }
-}
+    }
+
 
 
