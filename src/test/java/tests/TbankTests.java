@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
@@ -99,32 +98,31 @@ public  class TbankTests extends TestBase {
                     .shouldHave(text("Откликнуться"))
                     .click();
         });
-        step("Нажимаем на кнопку 'Откликнуться'",  () -> {
-            $("button[data-qa-type='uikit/button']")
-                    .shouldHave(text("Откликнуться"))
-                    .click();
-        });
+
         step("Проверяем, что на странице появляется форма отклика", () -> {
             $("div[data-qa-type='fb-core/constructor']").shouldBe(visible);
         });
         step("Заполняем поля формы", () -> {
 
-            $("input[data-qa-type='uikit/inputFio.value.input']")
-                    .setValue("Иван Иванов");
+            $("[data-qa-type='uikit/inputFio.value.input']")
+                    .sendKeys("Иванов Иван");
 
             $("input[data-qa-type='uikit/inputAutocomplete.value.input']")
-                    .setValue("Москва");
+                    .sendKeys("Москва");
+
+            $("[data-qa-type='uikit/dropdown.item']").click();
 
             $("input[data-qa-type='uikit/input.value.input']")
-                    .setValue("test@example.com");
+                    .sendKeys("test@example.com");
 
             $("input[data-qa-type='uikit/attachFile.input']")
-                    .uploadFile(new File("path/to/your/file.pdf"));
-
+                    .uploadFromClasspath("Melgunova Darya.pdf");
         });
-
-
-
+        step("Отправить", () -> {
+            $$("[data-qa-type='uikit/button']")
+                    .findBy(text("Отправить"))
+                    .click();
+        });
 
     }
     }
