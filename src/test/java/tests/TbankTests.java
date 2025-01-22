@@ -36,7 +36,7 @@ public  class TbankTests extends TestBase {
 
     @Test
     @Tag("simple")
-    @DisplayName("Выбор фильра Работа в ИТ")
+    @DisplayName("Проверка работы фильтров для выбранного направления")
     void selectFilter() {
         step("Открываем страницу 'Карьера'", () -> {
             open("/career");
@@ -54,7 +54,7 @@ public  class TbankTests extends TestBase {
 
     @Test
     @Tag("simple")
-    @DisplayName("Проверка выбора чекбокса 'Тестирование' и проверка наличия вакансии 'QA-инженер (backend)'")
+    @DisplayName("Проверка выбора чекбокса 'Тестирование' и проверка наличия вакансии 'Инженер по автоматизации тестирования (Java/Kotlin)'")
     void selectTestingCheckboxTest() {
         step("Открываем страницу с вакансиями", () -> {
             open("/career/vacancies");
@@ -84,7 +84,7 @@ public  class TbankTests extends TestBase {
 
     @Test
     @Tag("simple")
-    @DisplayName("Проверка информации на странице  'Инженер по автоматизации тестирования (Java/Kotlin)'")
+    @DisplayName("Проверка информации на странице для вакансии 'Инженер по автоматизации тестирования (Java/Kotlin)'")
     void CheckVacancy() {
         step("Открываем страницу с вакансией", () -> {
             open("/career/it/testirovanie/inzhener-po-avtomatizacii-testirovaniya-javakotlin/");
