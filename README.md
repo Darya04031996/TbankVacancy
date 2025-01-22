@@ -1,4 +1,4 @@
-<img src="/images/logo.jpg" width="200" height="50">
+<img src="/images/logo.png" width="200" height="50">
 
 # Покрытие сайта tbank.ru тестами предоставляет множество преимуществ для бизнеса и пользователей. Вот основные из них:
 
