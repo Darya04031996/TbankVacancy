@@ -1,4 +1,6 @@
 package tests;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -16,6 +18,9 @@ public  class TbankTests extends TestBase {
     @Test
     @DisplayName("Проверка перехода на страницу для поиска вакансий")
     void ConditionsTests() {
+
+        SelenideLogger.addListener("allure", new AllureSelenide());
+
         step("Открываем страницу 'Карьера'", () -> {
             open("/career");
         });
