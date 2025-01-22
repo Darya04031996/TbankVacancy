@@ -2,6 +2,7 @@ package tests;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -16,6 +17,7 @@ import static com.codeborne.selenide.logevents.SelenideLogger.step;
 public  class TbankTests extends TestBase {
 
     @Test
+    @Tag("simple")
     @DisplayName("Проверка перехода на страницу для поиска вакансий")
     void ConditionsTests() {
 
@@ -33,6 +35,7 @@ public  class TbankTests extends TestBase {
     }
 
     @Test
+    @Tag("simple")
     @DisplayName("Выбор фильра Работа в ИТ")
     void selectFilter() {
         step("Открываем страницу 'Карьера'", () -> {
@@ -50,6 +53,7 @@ public  class TbankTests extends TestBase {
     }
 
     @Test
+    @Tag("simple")
     @DisplayName("Проверка выбора чекбокса 'Тестирование' и проверка наличия вакансии 'QA-инженер (backend)'")
     void selectTestingCheckboxTest() {
         step("Открываем страницу с вакансиями", () -> {
@@ -79,6 +83,7 @@ public  class TbankTests extends TestBase {
     }
 
     @Test
+    @Tag("simple")
     @DisplayName("Проверка информации на странице  'Инженер по автоматизации тестирования (Java/Kotlin)'")
     void CheckVacancy() {
         step("Открываем страницу с вакансией", () -> {
@@ -93,6 +98,7 @@ public  class TbankTests extends TestBase {
         });
     }
     @Test
+    @Tag("simple")
     @DisplayName("Отклик на вакансию")
     void selectRespondTest() {
         step("Открываем страницу с вакансией", () -> {
