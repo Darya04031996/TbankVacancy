@@ -9,14 +9,13 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
-
+@Tag("simple")
 public class TbankTests extends TestBase {
-    @Tag("simple")
+
 
     @Test
     @DisplayName("Проверка перехода на страницу для поиска вакансий")
     void сonditionsTests() {
-
         step("Открываем страницу 'Карьера'", () -> {
             open("/career");
         });
