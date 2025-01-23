@@ -18,9 +18,7 @@
 Покрытие сайта тестами — это инвестиция в качество продукта, безопасность пользователей и репутацию банка.
 
 
-![This is an image](/icons/Java.png)![This is an image](/icons/Gradle.png)![This is an image](/icons/Intelij_IDEA.png)![This is an image](/icons/Selenide.png)![This is an image](/icons/Selenoid.png)![This is an image](/icons/JUnit5.png)![This is an image](/icons/Jenkins.png)![This is an image](/icons/Allure_Report.png)![This is an image](/icons/Telegram.png)
-
-:
+[![Java](/icons/Java.png)](https://www.java.com)[![Gradle](/icons/Gradle.png)](https://gradle.org)[![IntelliJ IDEA](/icons/Intelij_IDEA.png)](https://www.jetbrains.com/idea)[![Selenide](/icons/Selenide.png)](https://selenide.org)[![Selenoid](/icons/Selenoid.png)](https://aerokube.com/selenoid)[![JUnit 5](/icons/JUnit5.png)](https://junit.org/junit5)[![Jenkins](/icons/Jenkins.png)](https://www.jenkins.io)[![Allure Report](/icons/Allure_Report.png)](https://docs.qameta.io/allure)[![Telegram](/icons/Telegram.png)](https://telegram.org)
 
 - [x] Проверка перехода на страницу для поиска вакансий
 - [x] Проверка работы фильтров для выбранного направления
