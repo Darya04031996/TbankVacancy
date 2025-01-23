@@ -1,27 +1,21 @@
 package tests;
-import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.selenide.AllureSelenide;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
-
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
 
-
-public  class TbankTests extends TestBase {
+public class TbankTests extends TestBase {
+    @Tag("simple")
 
     @Test
-    @Tag("simple")
     @DisplayName("Проверка перехода на страницу для поиска вакансий")
-    void ConditionsTests() {
-
-        SelenideLogger.addListener("allure", new AllureSelenide());
+    void сonditionsTests() {
 
         step("Открываем страницу 'Карьера'", () -> {
             open("/career");
@@ -35,7 +29,6 @@ public  class TbankTests extends TestBase {
     }
 
     @Test
-    @Tag("simple")
     @DisplayName("Проверка работы фильтров для выбранного направления")
     void selectFilter() {
         step("Открываем страницу 'Карьера'", () -> {
@@ -53,7 +46,6 @@ public  class TbankTests extends TestBase {
     }
 
     @Test
-    @Tag("simple")
     @DisplayName("Проверка выбора чекбокса 'Тестирование' и проверка наличия вакансии 'Инженер по автоматизации тестирования (Java/Kotlin)'")
     void selectTestingCheckboxTest() {
         step("Открываем страницу с вакансиями", () -> {
@@ -61,21 +53,21 @@ public  class TbankTests extends TestBase {
         });
 
         step("Выбираем фильтр 'Работа в ИТ'", () -> {
-            // Находим и кликаем фильтр 'Работа в ИТ'
+
             $("label[data-qa-type='fitem:option:it'] input").click();
         });
 
         step("Нажимаем на кнопку 'Показать еще' в модуле 'Направление'", () -> {
-            // Находим кнопку 'Показать еще' и кликаем по ней
+
             $("[data-qa-type='fitem:specialty:show-more-btn']").click();
         });
 
         step("Выбираем чекбокс 'Тестирование' в модуле 'Направление'", () -> {
-            // Находим чекбокс с профессией 'Тестирование' и кликаем по нему
+
             $("[data-qa-type='fitem:option:testirovanie.fieldWrapper']").click();
         });
         step("Ищем вакансию 'Инженер по автоматизации тестирования (Java/Kotlin)'", () -> {
-            // Ищем вакансию с нужным названием по классу и проверяем наличие текста
+
             $(".IndependentPfpJobsVacanciesCatalogNew__cards_cK3abZ").shouldHave(text("Инженер по автоматизации тестирования (Java/Kotlin)"));
         });
 
@@ -83,9 +75,8 @@ public  class TbankTests extends TestBase {
     }
 
     @Test
-    @Tag("simple")
     @DisplayName("Проверка информации на странице для вакансии 'Инженер по автоматизации тестирования (Java/Kotlin)'")
-    void CheckVacancy() {
+    void сheckVacancy() {
         step("Открываем страницу с вакансией", () -> {
             open("/career/it/testirovanie/inzhener-po-avtomatizacii-testirovaniya-javakotlin/");
         });
@@ -97,8 +88,8 @@ public  class TbankTests extends TestBase {
                     .shouldHave(text("Мы предлагаем"));
         });
     }
+
     @Test
-    @Tag("simple")
     @DisplayName("Отклик на вакансию")
     void selectRespondTest() {
         step("Открываем страницу с вакансией", () -> {
@@ -136,7 +127,7 @@ public  class TbankTests extends TestBase {
         });
 
     }
-    }
+}
 
 
 
