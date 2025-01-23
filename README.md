@@ -37,11 +37,11 @@
 
 Пример allure отчета:
 
-<img src="/images/allure report2.jpg" width="300" height="300">
+<img src="/images/allure report2.jpg" width="200" height="100">
 
 Jenkins:
 
-<img src="/images/Jenkins.jpg" width="300" height="300">
+<img src="/images/Jenkins.jpg" width="200" height="100">
 
 Видео прогона одного из автотестов
 
